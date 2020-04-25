@@ -14,6 +14,13 @@ class IconPath:
     zoom_out_picture = 'config/icon/zoom_out.png'
     original_size_picture = 'config/icon/original_size.png'
     screen_shot = 'config/icon/screen_shot.png'
+    suitable_size = 'config/icon/suitable_size.png'
+    last_picture = 'config/icon/last.png'
+    next_picture = 'config/icon/next.png'
+    left_picture = 'config/icon/left.png'
+    right_picture = 'config/icon/right.png'
+    save_picture = 'config/icon/save.png'
+    select_path = 'config/icon/select_path.png'
 
 
 # 配置文件的读取和写入
