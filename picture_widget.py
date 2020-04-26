@@ -2,6 +2,7 @@ import os
 import cv2
 import sys
 import numpy as np
+import numpy.core._dtype_ctypes  # 打包需要用到
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
