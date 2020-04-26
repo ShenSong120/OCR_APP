@@ -11,6 +11,8 @@ class SaveFile(QDialog):
 
     def __init__(self, parent=None, default_name=''):
         super(SaveFile, self).__init__(parent)
+        style = 'font-family: Times New Roman; font-size: 13pt;'
+        self.setStyleSheet(style)
         # 起始路径
         self.start_path = Profile.get_config_value(GloVar.config_file_path, 'param', 'save_path')
         # 默认文件名

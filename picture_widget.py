@@ -25,7 +25,12 @@ class PictureWidget(QWidget):
                  QFileDialog {background-color: beige;}'
         self.setStyleSheet(style)
         self.parent = parent
-        self.picture_path = None
+        # 配置文件读取picture默认路径
+        picture = Profile.get_config_value(file=GloVar.config_file_path, section='param', option='picture')
+        if os.path.exists(picture):
+            self.picture_path = picture
+        else:
+            self.picture_path = None
         # 当前图片(非路径, 可以直接保存)
         self.image = None
         # 截图位置信息
@@ -370,8 +375,8 @@ class PictureWidget(QWidget):
         self.position[1] = int(point[1] / self.picture_zoom_scale)
         self.position[2] = int(point[2] / self.picture_zoom_scale)
         self.position[3] = int(point[3] / self.picture_zoom_scale)
-        default_name = '[' + str(self.position[0]) + ':' + str(self.position[1]) + ']' +\
-                       '[' + str(self.position[2]) + ':' + str(self.position[2]) + ']'
+        default_name = '[' + str(self.position[0]) + ',' + str(self.position[1]) + ']' +\
+                       '[' + str(self.position[2]) + ',' + str(self.position[2]) + ']'
         self.file_save_dialog = SaveFile(default_name=default_name)
         self.file_save_dialog.signal[str].connect(self.recevie_file_info)
         self.file_save_dialog.exec()
